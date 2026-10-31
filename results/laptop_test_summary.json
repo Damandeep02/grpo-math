@@ -1,0 +1,10 @@
+{
+  "model": "Qwen/Qwen2.5-0.5B-Instruct",
+  "adapter": null,
+  "gsm8k": {
+    "accuracy": 35.0,
+    "n": 20,
+    "avg_completion_tokens": 346.9,
+    "minutes": 2.2
+  }
+}
