@@ -2,6 +2,7 @@
 data loading and model loading. Keeping them in one file guarantees that
 training and evaluation use exactly the same prompt and the same checker."""
 
+import os
 import random
 import re
 
@@ -116,13 +117,16 @@ def math_correct(text, gold):
     pred = last_boxed(text)
     if pred is None:
         return False
-    try:
-        # math-verify checks mathematical equivalence (e.g. 0.5 == \frac{1}{2})
-        from math_verify import parse, verify
-        if verify(parse(f"${gold}$"), parse(f"${pred}$")):
-            return True
-    except Exception:
-        pass
+    # math-verify checks mathematical equivalence (e.g. 0.5 == \frac{1}{2}).
+    # Its timeout uses Linux signals and spawns broken helper processes on
+    # Windows, so on a Windows laptop we skip it and compare strings only.
+    if os.name != "nt":
+        try:
+            from math_verify import parse, verify
+            if verify(parse(f"${gold}$"), parse(f"${pred}$")):
+                return True
+        except Exception:
+            pass
     return normalize_math(pred) == normalize_math(gold)
 
 
