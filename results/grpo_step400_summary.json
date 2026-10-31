@@ -1,0 +1,22 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "adapter": "runs/grpo/step_400",
+  "gsm8k": {
+    "accuracy": 73.62,
+    "n": 1319,
+    "avg_completion_tokens": 253.0,
+    "minutes": 4.8
+  },
+  "math500": {
+    "accuracy": 50.6,
+    "n": 500,
+    "avg_completion_tokens": 532.3,
+    "minutes": 6.1
+  },
+  "mmlu": {
+    "accuracy": 57.2,
+    "n": 500,
+    "avg_completion_tokens": 1.2,
+    "minutes": 0.1
+  }
+}

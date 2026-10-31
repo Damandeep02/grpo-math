@@ -1,0 +1,22 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "adapter": "runs/sft",
+  "gsm8k": {
+    "accuracy": 52.16,
+    "n": 1319,
+    "avg_completion_tokens": 85.4,
+    "minutes": 2.9
+  },
+  "math500": {
+    "accuracy": 24.2,
+    "n": 500,
+    "avg_completion_tokens": 266.6,
+    "minutes": 6.7
+  },
+  "mmlu": {
+    "accuracy": 50.4,
+    "n": 500,
+    "avg_completion_tokens": 7.1,
+    "minutes": 0.2
+  }
+}
